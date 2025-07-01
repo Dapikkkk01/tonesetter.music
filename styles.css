@@ -1,356 +1,316 @@
-/* Default untuk Desktop atau layar besar */
-body {
-  font-family: Arial, sans-serif;
-  background-color: lightblue;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2em;
-  text-align: center;
-}
-
-/* Media Query untuk layar lebih kecil (misalnya tablet dan mobile) */
-@media screen and (max-width: 768px) {
-  body {
-      background-color: lightgreen; /* Ganti warna latar belakang pada mobile */
-  }
-
-  .container {
-      width: 90%; /* Menyesuaikan lebar kontainer pada layar kecil */
-  }
-
-  h1 {
-      font-size: 1.5em; /* Mengurangi ukuran font pada mobile */
-  }
-}
-
-/* Media Query untuk layar sangat kecil (misalnya smartphone) */
-@media screen and (max-width: 480px) {
-  h1 {
-      font-size: 1.2em; /* Menyesuaikan ukuran font untuk perangkat kecil */
-  }
-
-  .container {
-      padding: 10px; /* Mengurangi padding pada perangkat kecil */
-  }
-}
-
-
-/* styles.css */
-
-/* Menambahkan pengaturan umum untuk halaman */
-body, html {
-    margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-}
-
-body {
-  background-color: #0d0a0b;
-  background: linear-gradient(145deg, #55566a 0%, #131318 76%);
-  overflow: hidden;
-}
-
-/* Menata div .content */
-.content {
-    text-align: center;
-    padding: 50px;
-}
-
-/* Menata gambar logo */
-.logo {
-    width: 350px;  /* Sesuaikan ukuran gambar */
-    height: auto;
-    margin-bottom: 20px; /* Memberikan jarak antara gambar dan teks */
-}
-
-
-
-
-
-
-@import url("");
+/* --- Global Styles & Mobile-First Defaults --- */
+/* Ini akan menjadi gaya dasar yang berlaku untuk semua perangkat,
+   terutama perangkat mobile yang paling kecil. */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"); /* Pastikan link font ini benar */
 
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
 }
 
 body {
-  background-color: #0d0a0b;
-  background: linear-gradient(145deg, #55566a 0%, #131318 76%);
-  overflow: hidden;
+    background-color: #0d0a0b;
+    background: linear-gradient(145deg, #55566a 0%, #131318 76%);
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    min-height: 100vh; /* Memastikan body mengisi seluruh tinggi viewport */
+    display: flex; /* Menggunakan flexbox untuk layout utama */
+    flex-direction: column; /* Mengatur arah flex menjadi kolom */
+    justify-content: center; /* Memusatkan konten secara vertikal */
+    align-items: center; /* Memusatkan konten secara horizontal */
 }
 
 main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  place-items: center;
-  min-height: 100vh;
+    display: flex; /* Gunakan flexbox untuk main di mobile */
+    flex-direction: column; /* Tata elemen secara vertikal */
+    align-items: center; /* Pusatkan item secara horizontal */
+    width: 100%;
+    padding: 20px; /* Padding umum untuk main */
+    box-sizing: border-box;
 }
 
-/* Content */
-
+/* Content Section - Mobile Default */
 .content {
-  padding-left: 120px;
-  color: #c7c7c7c9;
-  user-select: none;
+    text-align: center;
+    padding: 20px; /* Padding yang lebih kecil untuk mobile */
+    color: #c7c7c7c9;
+    user-select: none;
+    width: 100%; /* Memastikan konten mengambil lebar penuh */
+}
+
+.logo {
+    max-width: 200px; /* Ukuran logo yang lebih kecil untuk mobile */
+    height: auto;
+    margin-bottom: 20px;
 }
 
 .content h1 {
-  font-family: "arial-black";
-  font-size: clamp(2rem, 3.5vw, 5.5rem);
-  font-weight: 700;
-  background: -webkit-linear-gradient(0deg, #1c28d3, #099afa);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1.1;
-  margin-bottom: 25px;
-  padding-left: 5px;
+    font-family: "arial-black", sans-serif; /* Fallback font */
+    font-size: clamp(2rem, 10vw, 3rem); /* Responsif font size untuk h1 */
+    font-weight: 700;
+    background: -webkit-linear-gradient(0deg, #1c28d3, #099afa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    margin-bottom: 15px; /* Jarak bawah yang lebih kecil */
+    padding: 0; /* Hapus padding-left untuk mobile */
 }
 
+/* Mengasumsikan "Tonesetter Band Acoustic." adalah .centered-text */
 .centered-text {
-    font-size: 1.5rem;
-    padding-left: 20px;  /* Memberikan ruang di sebelah kiri teks */
+    font-size: 1rem; /* Ukuran font lebih kecil untuk mobile */
     color: #666;
-    text-align: left;
+    text-align: center; /* Pusatkan teks untuk mobile */
+    padding: 0 15px; /* Padding horizontal untuk teks */
 }
-
-
 
 .btn {
-  background-color: #f76591;
-  background-image: linear-gradient(-180deg, #ffc16f, #f76591);
-  font-size: clamp(0.8rem, 8vw, 0.9rem);
-  font-weight: 600;
-  color: #ffffff;
-  width: max-content;
-  outline: 0;
-  border: 0;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  margin-top: 26px;
-  text-align: center;
-  transform: scale(1);
-  transition: all 0.2s ease-in;
-  cursor: pointer;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  pointer-events: auto;
+    background-color: #f76591;
+    background-image: linear-gradient(-180deg, #ffc16f, #f76591);
+    font-size: 0.9rem; /* Ukuran font tombol lebih kecil */
+    font-weight: 600;
+    color: #ffffff;
+    width: max-content;
+    outline: 0;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    margin-top: 25px;
+    text-align: center;
+    transform: scale(1);
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto;
 }
 
 .btn:hover {
-  box-shadow: 0 4px 10px rgba(247, 101, 145, 0.5);
-  transform: scale(0.98);
+    box-shadow: 0 4px 10px rgba(247, 101, 145, 0.5);
+    transform: scale(0.98);
 }
 
-/* Stacked Cards */
-
+/* Stacked Cards - Mobile Default */
 .stack {
-  position: relative;
+    position: relative;
+    margin-top: 40px; /* Jarak dari konten di atasnya */
+    width: 100%; /* Memastikan stack mengambil lebar penuh */
+    display: flex;
+    justify-content: center; /* Pusatkan kartu */
+    align-items: center;
+    min-height: 300px; /* Tinggi minimum agar kartu tidak tumpang tindih secara aneh */
 }
 
 .card {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 500px;
-  border-radius: 2rem;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
-    0 15px 20px 0 rgba(0, 0, 0, 0.125);
-  transition: transform 0.6s;
-  user-select: none;
+    position: absolute;
+    transform: translate(-50%, -50%); /* Tetap gunakan ini untuk penempatan tengah relatif */
+    top: 50%;
+    left: 50%;
+    width: 250px; /* Ukuran kartu yang lebih kecil untuk mobile */
+    height: 350px; /* Ukuran kartu yang lebih kecil untuk mobile */
+    border-radius: 2rem;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
+        0 15px 20px 0 rgba(0, 0, 0, 0.125);
+    transition: transform 0.6s;
+    user-select: none;
 }
 
 .card img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  object-fit: cover;
-  pointer-events: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    pointer-events: none;
 }
 
+/* Penyesuaian posisi kartu untuk mobile agar tidak terlalu jauh */
 .card:nth-last-child(n + 5) {
-  --x: calc(-50% + 90px);
-  transform: translate(var(--x), -50%) scale(0.85);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
+    --x: calc(-50% + 40px); /* Kurangi pergeseran */
+    transform: translate(var(--x), -50%) scale(0.85);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
 }
 
 .card:nth-last-child(4) {
-  --x: calc(-50% + 60px);
-  transform: translate(var(--x), -50%) scale(0.9);
+    --x: calc(-50% + 25px); /* Kurangi pergeseran */
+    transform: translate(var(--x), -50%) scale(0.9);
 }
 
 .card:nth-last-child(3) {
-  --x: calc(-50% + 30px);
-  transform: translate(var(--x), -50%) scale(0.95);
+    --x: calc(-50% + 10px); /* Kurangi pergeseran */
+    transform: translate(var(--x), -50%) scale(0.95);
 }
 
 .card:nth-last-child(2) {
-  --x: calc(-50%);
-  transform: translate(var(--x), -50%) scale(1);
+    --x: calc(-50%);
+    transform: translate(var(--x), -50%) scale(1);
 }
 
 .card:nth-last-child(1) {
-  --x: calc(-50% - 30px);
-  transform: translate(var(--x), -50%) scale(1.05);
+    --x: calc(-50% - 15px); /* Kurangi pergeseran */
+    transform: translate(var(--x), -50%) scale(1.05);
 }
 
 .card:nth-last-child(1) img {
-  box-shadow: 0 1px 5px 5px rgba(255, 193, 111, 0.5);
+    box-shadow: 0 1px 5px 5px rgba(255, 193, 111, 0.5);
 }
 
 .swap {
-  animation: swap 1.3s ease-out forwards;
+    animation: swap 1.3s ease-out forwards;
 }
 
 @keyframes swap {
-  30% {
-    transform: translate(calc(var(--x) - 250px), -50%) scale(0.85) rotate(-5deg)
-      rotateY(65deg);
-  }
-  100% {
-    transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
-    z-index: -1;
-  }
-}
-
-/* Media queries for keyframes */
-
-@media (max-width: 1200px) {
-  @keyframes swap {
     30% {
-      transform: translate(calc(var(--x) - 200px), -50%) scale(0.85)
-        rotate(-5deg) rotateY(65deg);
+        transform: translate(calc(var(--x) - 100px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
     }
-
     100% {
-      transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
-      z-index: -1;
+        transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+        z-index: -1;
     }
-  }
 }
 
-@media (max-width: 1050px) {
-  @keyframes swap {
-    30% {
-      transform: translate(calc(var(--x) - 150px), -50%) scale(0.85)
-        rotate(-5deg) rotateY(65deg);
+
+/* --- Media Queries for Tablets and Desktops (Larger Screens) --- */
+
+/* Tablet Portrait & Small Laptops */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Kembali ke satu kolom di tablet jika diperlukan */
+        grid-template-rows: auto auto;
+        padding: 40px;
     }
 
-    100% {
-      transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
-      z-index: -1;
+    .content {
+        padding: 40px;
     }
-  }
+
+    .logo {
+        max-width: 300px;
+    }
+
+    .content h1 {
+        font-size: clamp(3rem, 4vw, 4.5rem);
+        margin-bottom: 20px;
+    }
+
+    .centered-text {
+        font-size: 1.1rem;
+        padding: 0 50px;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    .card {
+        width: 300px;
+        height: 400px;
+    }
+
+    /* Adjust swap animation for tablet */
+    @keyframes swap {
+        30% {
+            transform: translate(calc(var(--x) - 150px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+        }
+        100% {
+            transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+            z-index: -1;
+        }
+    }
 }
 
-/* Media queries for other classes */
+/* Desktop & Larger Laptops */
+@media (min-width: 990px) {
+    main {
+        grid-template-columns: 1fr 1fr; /* Kembali ke layout 2 kolom untuk desktop */
+        grid-template-rows: 1fr;
+        grid-template-areas: none; /* Reset grid-area jika sebelumnya disetel */
+        place-items: center; /* Pusatkan item di grid */
+        padding: 0; /* Hapus padding jika sudah dihandle oleh .content */
+    }
 
-@media (max-width: 1200px) {
-  .content {
-    padding-left: 80px;
-  }
+    .content {
+        text-align: left; /* Teks rata kiri untuk desktop */
+        padding-left: 120px; /* Padding asli Anda untuk desktop */
+        padding-right: 20px; /* Beri sedikit padding kanan */
+        max-width: 600px; /* Batasi lebar konten */
+    }
 
-  .content p {
-    padding-right: 40px;
-  }
+    .logo {
+        max-width: 350px; /* Ukuran logo asli untuk desktop */
+    }
 
-  .card {
-    width: 250px;
-    height: 380px;
-  }
-}
+    .content h1 {
+        font-size: clamp(2rem, 3.5vw, 5.5rem); /* Ukuran font asli untuk desktop */
+        padding-left: 5px; /* Padding asli Anda untuk desktop */
+        margin-bottom: 25px;
+    }
 
-@media (max-width: 1050px) {
-  .content {
-    padding-left: 60px;
-  }
+    .centered-text {
+        font-size: 1.5rem; /* Ukuran font asli untuk desktop */
+        padding-left: 20px; /* Padding asli Anda untuk desktop */
+        text-align: left; /* Teks rata kiri untuk desktop */
+        line-height: 1.6;
+    }
 
-  .content p {
-    line-height: 1.5;
-  }
+    .btn {
+        font-size: clamp(0.8rem, 8vw, 0.9rem); /* Kembali ke ukuran font asli untuk tombol */
+        margin-top: 26px;
+    }
 
-  .card {
-    width: 220px;
-    height: 350px;
-  }
-}
+    .stack {
+        margin-top: 0; /* Hapus margin atas jika di desktop sudah pas */
+        position: relative;
+        width: auto;
+        min-height: 500px; /* Tinggi minimum yang cukup untuk kartu */
+    }
 
-@media (max-width: 990px) {
-  .content p {
-    padding-right: 0;
-  }
+    .card {
+        width: 350px; /* Ukuran kartu asli untuk desktop */
+        height: 500px; /* Ukuran kartu asli untuk desktop */
+    }
 
-  .card {
-    width: 200px;
-    height: 300px;
-  }
-}
+    /* Penyesuaian posisi kartu kembali ke nilai asli untuk desktop */
+    .card:nth-last-child(n + 5) {
+        --x: calc(-50% + 90px);
+        transform: translate(var(--x), -50%) scale(0.85);
+    }
 
-@media (max-width: 950px) {
-  main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 4fr 3fr;
-    grid-template-areas:
-      "stacked"
-      "content";
-  }
+    .card:nth-last-child(4) {
+        --x: calc(-50% + 60px);
+        transform: translate(var(--x), -50%) scale(0.9);
+    }
 
-  .content {
-    grid-area: content;
-    text-align: center;
-    padding: 0 90px;
-  }
+    .card:nth-last-child(3) {
+        --x: calc(-50% + 30px);
+        transform: translate(var(--x), -50%) scale(0.95);
+    }
 
-  .btn {
-    margin-bottom: 30px;
-  }
+    .card:nth-last-child(2) {
+        --x: calc(-50%);
+        transform: translate(var(--x), -50%) scale(1);
+    }
 
-  .stack {
-    grid-area: stacked;
-  }
-}
+    .card:nth-last-child(1) {
+        --x: calc(-50% - 30px);
+        transform: translate(var(--x), -50%) scale(1.05);
+    }
 
-@media (max-width: 650px) {
-  main {
-    grid-template-rows: 1fr 1fr;
-  }
-
-  .content {
-    padding: 0 50px;
-  }
-
-  .content h1 {
-    padding-left: 0;
-  }
-
-  .btn {
-    padding: 8px 16px;
-  }
-
-  .card {
-    width: 180px;
-    height: 260px;
-  }
+    /* Adjust swap animation for desktop */
+    @keyframes swap {
+        30% {
+            transform: translate(calc(var(--x) - 250px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+        }
+        100% {
+            transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+            z-index: -1;
+        }
+    }
 }
